@@ -1,10 +1,10 @@
 <?php
 
-$username = $_POST["username"];
+$username = trim($_POST["username"]);
 $name = $_POST["nome"];
 $email = $_POST["email"];
 $dtnasc = $_POST["dtnasc"];
-$senha = $_POST["senha"];
+$senha = md5(trim($_POST["senha"]));
 
 include('conexao.php');
 
@@ -14,7 +14,8 @@ $validar = $con->query($sql_validar) or die("Falha na execução do código SQL:
 $quantidade = $validar->num_rows;
 
 if ($quantidade == 1) {
-    echo "Já existe este nome";
+    echo "<p>Já existe este nome<p/>";
+    echo "<a href = \"../front-end/cadastro/cadastro.html\"> Voltar<a/>";
 } else {
 
     $sql = "INSERT INTO usuarios VALUES (null, '$username', '$name', '$dtnasc', '$email', '$senha')";
@@ -25,7 +26,10 @@ if ($quantidade == 1) {
     if ($con->affected_rows > 0) {
            echo "<p>";
         echo $con->affected_rows;
-        header("Location: ../../front-end/restrita/homepage.html");
+        session_start();
+        $_SESSION["usuario"] = $username;
+        $_SESSION["senha"] = $senha;
+        header("Location: ../front-end/restrita/index.php");
     } else {
         echo "<p>Ocorreu um erro: ";
         echo $con->error;
