@@ -1,3 +1,8 @@
+*{  
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-image: url(../assets/pokemon-screen.jpg);
     height: 100vh;
@@ -22,7 +27,7 @@ body{
     align-items: center;
     background-color: antiquewhite;
     width: 355px;
-    height: 540px;
+    height: 500px;
     padding: 35px;
     border-radius: 10px;
 }

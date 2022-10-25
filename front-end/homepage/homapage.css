@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#about{
+    background-image: url(../../assets/pokemon-screen.jpg);
+    width: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

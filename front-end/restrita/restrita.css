@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(../assets/restrito.png);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.areaPrincipal {
+    padding-bottom: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000050;
+}
+
+.menuPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 355px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.pc img{
+    display: block;
+    height: 65vh;
+    width: auto;
+}
+
+.equipe img{
+    display: block;
+    height: 11vh;
+    width: auto;
+    margin-top: 10px;
+}
