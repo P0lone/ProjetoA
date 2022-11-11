@@ -17,29 +17,85 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
     background-color: #00000050;
+    position: relative;
 }
 
 .menuPrincipal{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 355px;
     height: 500px;
+    width: 100vw;
     border-radius: 10px;
+    position: relative;
+}
+
+.menuPc{
+    display: flex;
+    flex-direction: row;
+}
+
+.menuPc img{
+    height: 10.5vh;
+    width: auto;
+    position: relative;
+}
+
+.menuPc button{
+    background: none;
+    border: none;
+}
+
+#btnEsq{
+    padding-right: 10px;
+}
+
+#btnDir{
+    padding-left: 10px;
 }
 
 .pc img{
-    display: block;
-    height: 65vh;
+    margin-top: 10px;
+    height: 55vh;
     width: auto;
+    position: relative;
 }
 
 .equipe img{
-    display: block;
     height: 11vh;
     width: auto;
     margin-top: 10px;
+    position: relative;
+}
+
+.btnLat{
+    align-items: left;
+    flex-direction: column;
+    position: relative;
+}
+
+.loja {
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    background-color: antiquewhite;
+    position: absolute;
+    width: 500px;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    visibility: hidden;
+}
+
+.loja img{
+    width: 100px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.loja button{
+    margin-bottom: 20px;
 }
