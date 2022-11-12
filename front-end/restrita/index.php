@@ -1,5 +1,6 @@
 <?php
-include("../../back-end/validaAcesso.php")
+include("../../back-end/validaAcesso.php");
+include("../../back-end/pokemon.php")
 ?>
 
 <!DOCTYPE html>
@@ -47,25 +48,65 @@ include("../../back-end/validaAcesso.php")
                 <button id="btnDir"><img src="../assets/setaMenuDir.png"/></button>
             </div>
             <div class="pc">
-                <img id="pc1" src="../assets/PC_Background_Forest.png" style="display: block;">
-                <img id="pc2" src="../assets/pcRailwayM.png" style="display: none;">
-                <img id="pc3" src="../assets/pcRailwayD.png" style="display: none;">
-                <img id="pc4" src="../assets/pcFloor.png" style="display: none;">
-                <img id="pc5" src="../assets/pcWater.png" style="display: none;">
+                <div class="gridPos">
+                    <div><img class="gridPok" id="box01" src="<?=sortear()?>"></div>
+                    <div><img class="gridPok" id="box02" src="<?=sortear()?>"></div>
+                    <div><img class="gridPok" id="box03" src=></div>
+                    <div><img class="gridPok" id="box04" src=></div>
+                    <div><img class="gridPok" id="box05" src=></div>
+                    <div><img class="gridPok" id="box06" src=></div>
+                    <div><img class="gridPok" id="box07" src=""></div>
+                    <div><img class="gridPok" id="box08" src=""></div>
+                    <div><img class="gridPok" id="box09" src=""></div>
+                    <div><img class="gridPok" id="box10" src=""></div>
+                    <div><img class="gridPok" id="box11" src=""></div>
+                    <div><img class="gridPok" id="box12" src=""></div>
+                    <div><img class="gridPok" id="box13" src=""></div>
+                    <div><img class="gridPok" id="box14" src=""></div>
+                    <div><img class="gridPok" id="box15" src=""></div>
+                    <div><img class="gridPok" id="box16" src=""></div>
+                    <div><img class="gridPok" id="box17" src=""></div>
+                    <div><img class="gridPok" id="box18" src=""></div>
+                    <div><img class="gridPok" id="box19" src=""></div>
+                    <div><img class="gridPok" id="box20" src=""></div>
+                    <div><img class="gridPok" id="box21" src=""></div>
+                    <div><img class="gridPok" id="box22" src=""></div>
+                    <div><img class="gridPok" id="box23" src=""></div>
+                    <div><img class="gridPok" id="box24" src=""></div>
+                    <div><img class="gridPok" id="box25" src=""></div>
+                    <div><img class="gridPok" id="box26" src=""></div>
+                    <div><img class="gridPok" id="box27" src=""></div>
+                    <div><img class="gridPok" id="box28" src=""></div>
+                    <div><img class="gridPok" id="box29" src=""></div>
+                    <div><img class="gridPok" id="box30" src=""></div>
+                </div>
+                <img id="pc1" class="pcImg" src="../assets/PC_Background_Forest.png" style="display: block;">
+                <img id="pc2" class="pcImg" src="../assets/pcRailwayM.png" style="display: none;">
+                <img id="pc3" class="pcImg" src="../assets/pcRailwayD.png" style="display: none;">
+                <img id="pc4" class="pcImg" src="../assets/pcFloor.png" style="display: none;">
+                <img id="pc5" class="pcImg" src="../assets/pcWater.png" style="display: none;">
             </div>
             <div class="equipe">
+                <div class="gridPos" style="padding-top: 0; margin-left:5px;">
+                    <div><img class="gridPok" id="equipe1" src=""></div>
+                    <div><img class="gridPok" id="equipe2" src=""></div>
+                    <div><img class="gridPok" id="equipe3" src=""></div>
+                    <div><img class="gridPok" id="equipe4" src=""></div>
+                    <div><img class="gridPok" id="equipe5" src=""></div>
+                    <div><img class="gridPok" id="equipe6" src=""></div>
+                </div>
                 <img src="../assets/equipe.png">
             </div>
             <div class="loja">
                 Ovo Comum:
                 <img src="../assets/Ovo.png">
-                <button>Comprar</button>
+                <button id="buyComum">Comprar</button>
                 Ovo Raro:
                 <img src="../assets/OvoRaro.png">
-                <button>Comprar</button>
+                <button id="buyRaro">Comprar</button>
                 Ovo Lendário:
                 <img src="../assets/OvoLendario.png">
-                <button>Comprar</button>
+                <button id="buyLenda">Comprar</button>
             </div>
         </div>
     </section>
