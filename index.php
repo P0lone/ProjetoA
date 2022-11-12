@@ -1,5 +1,1 @@
-<?php 
-
-header("Location: front-end/homepage/index.html");
-
-?>
+<?php header("Location: front-end/homepage/index.html");?>

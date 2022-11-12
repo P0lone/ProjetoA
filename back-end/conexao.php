@@ -2,7 +2,7 @@
 $hostbd = "localhost";
 $userbd = "root";
 $senhabd = "";
-$bancodados = "projeto_a";
+$bancodados = "idlemon";
 
 $con = new mysqli($hostbd, $userbd, $senhabd, $bancodados);
 ?>

@@ -32,6 +32,9 @@ include("../../back-end/validaAcesso.php")
             <button id="btnLoja" >
                 LOJA
             </button>
+            <button id="btnAmg">
+                Amigos
+            </button>
         </div>
         <div class="menuPrincipal">
             <div class="menuPc">
