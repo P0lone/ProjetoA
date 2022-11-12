@@ -1,6 +1,7 @@
 <?php
 include("../../back-end/validaAcesso.php");
-include("../../back-end/pokemon.php")
+include("../../back-end/pokemon.php");
+$pok1 = criarPok();
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +50,12 @@ include("../../back-end/pokemon.php")
             </div>
             <div class="pc">
                 <div class="gridPos">
-                    <div><img class="gridPok" id="box01" src="<?=sortear()?>"></div>
-                    <div><img class="gridPok" id="box02" src="<?=sortear()?>"></div>
-                    <div><img class="gridPok" id="box03" src=></div>
-                    <div><img class="gridPok" id="box04" src=></div>
-                    <div><img class="gridPok" id="box05" src=></div>
-                    <div><img class="gridPok" id="box06" src=></div>
+                    <div><img class="gridPok" id="box01" src=<?=$pok1["sprite"]?>></div>
+                    <div><img class="gridPok" id="box02" src=""></div>
+                    <div><img class="gridPok" id="box03" src=""></div>
+                    <div><img class="gridPok" id="box04" src=""></div>
+                    <div><img class="gridPok" id="box05" src=""></div>
+                    <div><img class="gridPok" id="box06" src=""></div>
                     <div><img class="gridPok" id="box07" src=""></div>
                     <div><img class="gridPok" id="box08" src=""></div>
                     <div><img class="gridPok" id="box09" src=""></div>

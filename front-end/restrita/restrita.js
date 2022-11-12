@@ -66,3 +66,15 @@ $("#btnDir").click(function (e) {
         $("#pc1").css("display", "block");
     }
 });
+
+$("#buyComum").click(function (e) { 
+    e.preventDefault();
+    $.ajax({
+        type: "GET",
+        url: "../../back-end/pokemon.php",
+        dataType: "php",
+        success: function (response) {
+            $pok1 = criarPok();
+        }
+    });
+});

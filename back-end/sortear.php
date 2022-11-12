@@ -1,6 +1,10 @@
 <?php
     require_once("conexao.php");
+    
+    
     $sql = "SELECT * FROM `pokemon` WHERE `pok_raridade`='comum'";
+    
+    
     $result = $con->query($sql);
     $i=0;
     while($pok = $result->fetch_assoc()){
