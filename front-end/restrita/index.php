@@ -1,11 +1,10 @@
 <?php
 include("../../back-end/validaAcesso.php");
-include("../../back-end/pokemon.php");
-$pok1 = criarPok();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +13,12 @@ $pok1 = criarPok();
     <link rel="stylesheet" href="restrita.css">
     <link rel="stylesheet" href="../homepage/css/styles.css">
     <script src="../assets/jquery-3.6.1.min.js"></script>
+    <script src="restrita.js"></script>
     <title>IdleMon</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container px-4">
             <a class="navbar-brand" href="../homepage/index.html">IdleMon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -31,7 +32,7 @@ $pok1 = criarPok();
 
     <section class="areaPrincipal">
         <div class="btnLat">
-            <button id="btnLoja" >
+            <button id="btnLoja">
                 LOJA
             </button>
             <button id="btnAmg">
@@ -40,17 +41,17 @@ $pok1 = criarPok();
         </div>
         <div class="menuPrincipal">
             <div class="menuPc">
-                <button id="btnEsq"><img src="../assets/setaMenuEsq.png"/></button>
+                <button id="btnEsq"><img src="../assets/setaMenuEsq.png" /></button>
                 <img id="menu1" src="../assets/MenuPcForest.png" style="display: block;">
                 <img id="menu2" src="../assets/menuPcRailwayM.png" style="display: none;">
                 <img id="menu3" src="../assets/menuPcRailwayD.png" style="display: none;">
                 <img id="menu4" src="../assets/menuPcFloor.png" style="display: none;">
                 <img id="menu5" src="../assets/menuPcWater.png" style="display: none;">
-                <button id="btnDir"><img src="../assets/setaMenuDir.png"/></button>
+                <button id="btnDir"><img src="../assets/setaMenuDir.png" /></button>
             </div>
             <div class="pc">
                 <div class="gridPos">
-                    <div><img class="gridPok" id="box01" src=<?=$pok1["sprite"]?>></div>
+                    <div><img class="gridPok" id="box01" src=<?= $pok1["sprite"] ?>></div>
                     <div><img class="gridPok" id="box02" src=""></div>
                     <div><img class="gridPok" id="box03" src=""></div>
                     <div><img class="gridPok" id="box04" src=""></div>
@@ -111,6 +112,6 @@ $pok1 = criarPok();
             </div>
         </div>
     </section>
-    <script src="restrita.js"></script>
 </body>
+
 </html>

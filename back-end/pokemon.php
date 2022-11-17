@@ -1,8 +1,7 @@
-<link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 <?php
-    function criarPok(){
+    $raridade = $_GET['raridade'];
     include("conexao.php");
-    include("sortear.php");
+    $pokSorteio = sorteio($raridade);
     $sql = "SELECT * FROM `pokemon` WHERE `pok_id`=$pokSorteio";
     $result = $con->query($sql);
     $pok = $result->fetch_assoc();
@@ -16,6 +15,7 @@
         "tier" => $pok["pok_tier"],
         "sprite" => $pokApi["sprites"]["front_default"]
     ];
-    return $newPok;
-    }
+
+echo $newPok;
+
 ?>
