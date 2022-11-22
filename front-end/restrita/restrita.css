@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body{
+body {
     background-image: url(../assets/restrito.png);
     height: 100vh;
     background-position: center;
@@ -12,7 +12,7 @@ body{
 }
 
 .areaPrincipal {
-    padding-bottom: 33vh;
+    padding-bottom: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ body{
     background-color: #00000050;
 }
 
-.menuPrincipal{
+.menuPrincipal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,78 +28,120 @@ body{
     width: 100vw;
 }
 
-.menuPc{
+.menuPc {
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
-.menuPc img{
+.menuPc img {
     height: 10.5vh;
     width: auto;
 }
 
-.menuPc button{
+.menuPc button {
     background: none;
     border: none;
 }
 
-#btnEsq{
+#btnEsq {
     padding-right: 10px;
 }
 
-#btnDir{
+#btnDir {
     padding-left: 10px;
 }
 
-.pcImg{
+.pcImg {
     margin-top: 10px;
     height: 55vh;
     width: auto;
     position: relative;
 }
 
-.equipe img{
+.equipe img {
     height: 11vh;
     width: auto;
     margin-top: 10px;
     position: relative;
 }
 
-.btnLat{
+.btnLat {
     align-items: left;
     flex-direction: column;
     position: relative;
     display: flex;
+    width: 0px;
+    margin-bottom: 250px;
+}
+
+#btnLoja {
+    width: 70px;
+    border-radius: 20px;
+    border: 5px solid #8F8A0D;
+    color: #000;
+    background-color: #DBD409;
+    border-radius: 15px;
+}
+
+.money {
+    margin-bottom: 250px;
+    width: 250px;
+    padding: 5px;
+    border: 5px solid #8F8A0D;
+    color: #000;
+    background-color: #DBD409;
+    border-radius: 15px;
+}
+
+.money img {
+    height: 15px;
+    width: auto;
+    padding-right: 5px;
 }
 
 .loja {
-    flex-direction: column;
     align-self: center;
     justify-content: center;
-    display: flex;
-    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    background-color: #06618F;
     position: absolute;
-    width: 500px;
+    width: 550px;
+    height: 500px;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
     visibility: hidden;
-    z-index: 2;
+    z-index: 9;
+    border-radius: 25px;
 }
 
-.loja img{
+.gridLoja{
+    margin-left: 50px;
+    text-transform: uppercase;
+}
+
+.loja img {
     width: 100px;
     height: auto;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.loja button{
+.loja button {
     margin-bottom: 20px;
+    width: 100px;
+    border: 5px solid #8F8A0D;
+    color: #000;
+    background-color: #DBD409;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 5px;
 }
 
-.gridPos{
+.gridPos {
     display: grid;
     grid-template-columns: 76px 76px 76px 76px 76px 76px;
     grid-auto-flow: row;
@@ -111,7 +153,7 @@ body{
     z-index: 1;
 }
 
-.gridPok{
+.gridPok {
     display: block;
     width: 65px;
     height: auto;
