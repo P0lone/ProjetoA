@@ -1,0 +1,30 @@
+body{
+    overflow-x: hidden;
+}
+
+#principal{
+    background-image: url("http://localhost/ProjetoA/front-end/assets/pokemon-screen.jpg");
+    width: 100vw;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#about{
+    background-image: url("http://localhost/ProjetoA/front-end/assets/homepage.png");
+    height: auto;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texto{
+    margin-bottom: 220px;
+}
+
+#textoCorpo{
+    width: 500px;
+    text-align: justify;
+}
