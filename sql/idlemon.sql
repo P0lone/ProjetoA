@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Nov-2022 às 21:59
+-- Tempo de geração: 24-Nov-2022 às 02:24
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `idlemon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `assoc_pok_user`
+--
+
+CREATE TABLE `assoc_pok_user` (
+  `idAssoc` int(11) NOT NULL,
+  `pok_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `assoc_pok_user`
+--
+
+INSERT INTO `assoc_pok_user` (`idAssoc`, `pok_id`, `user_id`) VALUES
+(6, 4, 6),
+(7, 7, 6);
 
 -- --------------------------------------------------------
 
@@ -205,20 +225,29 @@ CREATE TABLE `usuarios` (
   `nome` varchar(200) NOT NULL,
   `dtnasc` date NOT NULL,
   `email` varchar(150) NOT NULL,
-  `senha` varchar(150) NOT NULL
+  `senha` varchar(150) NOT NULL,
+  `dinheiro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nomeDeUsuario`, `nome`, `dtnasc`, `email`, `senha`) VALUES
-(6, 'a', 'a', '2022-09-10', 'a@g.com', '0cc175b9c0f1b6a831c399e269772661'),
-(9, 'B', 'B', '0001-01-04', 'b@g.com', '92eb5ffee6ae2fec3ad71c777531578f');
+INSERT INTO `usuarios` (`id`, `nomeDeUsuario`, `nome`, `dtnasc`, `email`, `senha`, `dinheiro`) VALUES
+(6, 'a', 'a', '2022-09-10', 'a@g.com', '0cc175b9c0f1b6a831c399e269772661', 400),
+(9, 'B', 'B', '0001-01-04', 'b@g.com', '92eb5ffee6ae2fec3ad71c777531578f', 400);
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `assoc_pok_user`
+--
+ALTER TABLE `assoc_pok_user`
+  ADD PRIMARY KEY (`idAssoc`),
+  ADD KEY `fk_pok` (`pok_id`),
+  ADD KEY `fk_user` (`user_id`);
 
 --
 -- Índices para tabela `pokemon`
@@ -237,6 +266,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `assoc_pok_user`
+--
+ALTER TABLE `assoc_pok_user`
+  MODIFY `idAssoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT de tabela `pokemon`
 --
 ALTER TABLE `pokemon`
@@ -246,7 +281,18 @@ ALTER TABLE `pokemon`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `assoc_pok_user`
+--
+ALTER TABLE `assoc_pok_user`
+  ADD CONSTRAINT `fk_pok` FOREIGN KEY (`pok_id`) REFERENCES `pokemon` (`pok_id`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

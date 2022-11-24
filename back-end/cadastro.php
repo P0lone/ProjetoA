@@ -18,7 +18,7 @@ if ($quantidade == 1) {
     echo "<a href = \"../front-end/cadastro/cadastro.html\"> Voltar<a/>";
 } else {
 
-    $sql = "INSERT INTO usuarios VALUES (null, '$username', '$name', '$dtnasc', '$email', '$senha')";
+    $sql = "INSERT INTO usuarios VALUES (null, '$username', '$name', '$dtnasc', '$email', '$senha', '400')";
     echo $sql;
 
     $result = $con->query($sql);

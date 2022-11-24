@@ -26,6 +26,7 @@ $pokDB = $result->fetch_assoc();
 $dados = file_get_contents("https://pokeapi.co/api/v2/pokemon/" . $pokDB["pok_name"]);
 $pokApi = json_decode($dados, true);
 $newPok = [
+    "id" => $pokDB["pok_id"],
     "nome" => $pokDB["pok_name"],
     "raridade" => $pokDB["pok_raridade"],
     "producao" => $pokDB["pok_producao"],

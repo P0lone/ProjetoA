@@ -1,0 +1,23 @@
+<?php
+include("conexao.php");
+$usua = $_GET["usua"];
+$sql = "SELECT * FROM `usuarios` WHERE `nomeDeUsuario` = '$usua'";
+$result = $con->query($sql);
+@$userDataBase = $result->fetch_assoc();
+$idUser = $userDataBase['id'];
+$sql = "SELECT * FROM `assoc_pok_user` WHERE `user_id` = '$idUser'";
+$result = $con->query($sql);
+$pokemon;
+$i = 0;
+while($assocDB = $result->fetch_assoc()){
+    $pokemon[$i] = $assocDB["pok_id"];
+    echo $pokemon[$i];
+    $i++;
+}
+@$usuario = [
+    "money" => $userDataBase["dinheiro"],
+    "pokemon" => $pokemon,
+];
+$dado = json_encode($usuario, true);
+echo $dado;
+?>
