@@ -152,8 +152,9 @@ include("../../back-end/validaAcesso.php");
             $(".team").click(function(e) {
                 e.preventDefault();
                 $(this).attr("src", "");
-                $(this).attr("producao","");
-            });
+                $(this).attr("producao", "");
+            });//pagar time
+
             $(".box").click(function(e) {
                 e.preventDefault();
                 var verifica = true;
@@ -176,12 +177,13 @@ include("../../back-end/validaAcesso.php");
                     }
                 });
                 if (duplicado) {
-                    apagarPoke($(this));  
+                    apagarPoke($(this));
                 }
                 if (verifica) {
                     alert("Limite Máximo Atingido");
                 }
-            });
+            });//add time
+
             $(".btnBuy").click(function() {
                 if (dinheiro < $(this).attr("preco")) {
                     alert("Dinheito Insuficiente")
@@ -193,8 +195,8 @@ include("../../back-end/validaAcesso.php");
                     type: "GET",
                     url: "http://localhost/projetoa/back-end/transfereMoney.php",
                     data: {
-                        username : usuario,
-                        moneyDB : dinheiro,
+                        username: usuario,
+                        moneyDB: dinheiro,
                     },
                     dataType: "JSON",
                 });
@@ -223,7 +225,7 @@ include("../../back-end/validaAcesso.php");
                                     type: "GET",
                                     url: "http://localhost/projetoa/back-end/transferePok.php",
                                     data: {
-                                        username : usuario,
+                                        username: usuario,
                                         pokId: resp.id,
                                     },
                                     dataType: "JSON",
@@ -236,7 +238,7 @@ include("../../back-end/validaAcesso.php");
                             alert("Limite Máximo Atingido");
                         }
                     }
-                }); //ajax
+                });
             }); //buy
 
             $("#addMoney").click(function(e) {
@@ -253,12 +255,12 @@ include("../../back-end/validaAcesso.php");
                     type: "GET",
                     url: "http://localhost/projetoa/back-end/transfereMoney.php",
                     data: {
-                        username : usuario,
-                        moneyDB : dinheiro,
+                        username: usuario,
+                        moneyDB: dinheiro,
                     },
                     dataType: "JSON",
                 });
-            });
+            });//click
 
             $.ajax({
                 type: "GET",
@@ -269,37 +271,34 @@ include("../../back-end/validaAcesso.php");
                 },
                 success: function(response) {
                     var resp = JSON.parse(response);
-                    dinheiro = resp.money;
-                    $("#valor").html(dinheiro);
-                    if (resp.pokemon == null) {
+                    if (resp.length < 1) {
                         $(".escolhePok").css("display", "block");
                         return false;
-                    }
-                    $.ajax({
-                        type: "GET",
-                        url: "http://localhost/projetoa/back-end/pegaPok.php",
-                        data: {
-                            idPok: resp.pokemon,
-                        },
-                        dataType: "JSON",
-                        success: function(resp2) {
-
-                            $(".box").each(function() {
-                                if ($(this).attr("src") == "") {
-                                    $(this).attr("src", resp2.sprite);
-                                    $(this).attr("producao", resp2.producao);
-                                    $(this).attr("evolve", resp2.evolve);
-                                    $(this).attr("tier", resp2.tier);
-                                    $(this).attr("nome", resp2.nome);
-                                    $(this).attr("idPok", resp2.id);
-                                    return false;
-                                }
-                            });
+                    } else {
+                        for (let index = 0; index < resp.length; index++) {
+                            if (index == 30) return false;
+                            var box = "#box" + (index + 1);
+                            $(box).attr("src", resp[index].sprite);
+                            $(box).attr("producao", resp[index].producao);
                         }
-                    });
+                    }
 
                 }
-            })
+            });//ajaxPok
+            
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/projetoa/back-end/pegaDinheiro.php",
+                data: {
+                    idUsua: usuario,
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    var resp = JSON.parse(response);
+                    dinheiro = resp;
+                    $("#valor").html(dinheiro);
+                }
+            });//ajaxMoney
 
             $(".btnEscolhePok").click(function(e) {
                 e.preventDefault();
@@ -326,46 +325,56 @@ include("../../back-end/validaAcesso.php");
                                 return false;
                             }
                         });
+
+                        $.ajax({
+                            type: "GET",
+                            url: "http://localhost/projetoa/back-end/transferePok.php",
+                            data: {
+                                username: usuario,
+                                pokId: resp.id,
+                            },
+                            dataType: "JSON",
+                        });
                         $(".escolhePok").css("display", "none");
 
                     }
                 });
-            });
+            });//escolher
 
-            function apagarPoke($pok,$pokTeam){
-                $(".apagarPok").css("display","block");
-                $(".btnApagar").click(function (e) { 
-                e.preventDefault();
-                if($(this).attr("apagar")=='t'){
-                    $.ajax({
-                        type: "GET",
-                        url: "http://localhost/projetoa/back-end/apagarPok.php",
-                        data: {
-                            pokemonId : $($pok).attr("idPok")
-                        },
-                        dataType: "JSON",
-                    });
-                    $(".team").each(function() {
-                       if($(this).attr("src") == $($pok).attr("src")){
-                            $(this).attr("src", "");
-                            $(this).attr("producao","");
-                        } 
-                    });
-                    $($pok).attr("src", "");
-                    $($pok).attr("producao", "");
-                    $($pok).attr("evolve", "");
-                    $($pok).attr("tier", "");
-                    $($pok).attr("nome", "");
-                    $($pok).attr("idPok", "");
-                    $(".apagarPok").css("display","none");
-                    return false;
-                }else{
-                    $(".apagarPok").css("display","none");
-                }
-            });
-            }
+            function apagarPoke($pok, $pokTeam) {
+                $(".apagarPok").css("display", "block");
+                $(".btnApagar").click(function(e) {
+                    e.preventDefault();
+                    if ($(this).attr("apagar") == 't') {
+                        $.ajax({
+                            type: "GET",
+                            url: "http://localhost/projetoa/back-end/apagarPok.php",
+                            data: {
+                                pokemonId: $($pok).attr("idPok")
+                            },
+                            dataType: "JSON",
+                        });
+                        $(".team").each(function() {
+                            if ($(this).attr("src") == $($pok).attr("src")) {
+                                $(this).attr("src", "");
+                                $(this).attr("producao", "");
+                            }
+                        });
+                        $($pok).attr("src", "");
+                        $($pok).attr("producao", "");
+                        $($pok).attr("evolve", "");
+                        $($pok).attr("tier", "");
+                        $($pok).attr("nome", "");
+                        $($pok).attr("idPok", "");
+                        $(".apagarPok").css("display", "none");
+                        return false;
+                    } else {
+                        $(".apagarPok").css("display", "none");
+                    }
+                });
+            };//apagar
 
-        });
+        });//document
     </script>
 </body>
 

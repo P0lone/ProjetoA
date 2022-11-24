@@ -8,13 +8,13 @@ $senha = md5(trim($_POST["senha"]));
 
 include('conexao.php');
 
-$sql_validar = "SELECT * FROM usuarios WHERE nome='$name'";
+$sql_validar = "SELECT * FROM usuarios WHERE nomeDeUsuario='$name'";
 $validar = $con->query($sql_validar) or die("Falha na execução do código SQL: " . $con->error);
 
 $quantidade = $validar->num_rows;
 
 if ($quantidade == 1) {
-    echo "<p>Já existe este nome<p/>";
+    echo "<p>Já existe este nome de usuario<p/>";
     echo "<a href = \"../front-end/cadastro/cadastro.html\"> Voltar<a/>";
 } else {
 

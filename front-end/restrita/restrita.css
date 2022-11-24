@@ -12,7 +12,7 @@ body {
 }
 
 .areaPrincipal {
-    padding-bottom: 10vh;
+    padding-bottom: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +72,7 @@ body {
     position: relative;
     display: flex;
     width: 0px;
-    margin-bottom: 250px;
+    margin-bottom: 370px;
 }
 
 .btnJogo {
@@ -148,7 +148,7 @@ body {
 
 .gridPos {
     display: grid;
-    grid-template-columns: 76px 76px 76px 76px 76px 76px;
+    grid-template-columns: 120px 120px 120px 120px 120px 120px;
     grid-auto-flow: row;
     padding-top: 20px;
     margin-left: 10px;
@@ -160,7 +160,7 @@ body {
 
 .gridPok {
     display: block;
-    width: 65px;
+    width: 100px;
     height: auto;
     grid-area: overlaydemo;
     text-align: center;
