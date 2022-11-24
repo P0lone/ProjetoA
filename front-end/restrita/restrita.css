@@ -190,3 +190,21 @@ body {
     height: 45px;
     width: auto;
 }
+
+.apagarPok{
+    width: 200px;
+    height: 150px;
+    background-color: #1F9CDB;
+    z-index: 5;
+    position: absolute;
+    border-radius: 25px;
+    display: none;
+}
+
+.btnApagar{
+    margin-left: 32px;
+    width: 50px;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+}

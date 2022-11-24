@@ -131,6 +131,15 @@ include("../../back-end/validaAcesso.php");
                 <img src="../assets/squirtle.png">
             </button>
         </div>
+        <div class="apagarPok">
+            <p class="textEscolhePok">Quer soltar seu pokemon?</p>
+            <button class="btnApagar" apagar="t" style="background-color: #DB3545;">
+                Sim
+            </button>
+            <button class="btnApagar" apagar="f" style="background-color: #67DB14;">
+                Não
+            </button>
+        </div>
     </section>
 
     <script>
@@ -143,6 +152,7 @@ include("../../back-end/validaAcesso.php");
             $(".team").click(function(e) {
                 e.preventDefault();
                 $(this).attr("src", "");
+                $(this).attr("producao","");
             });
             $(".box").click(function(e) {
                 e.preventDefault();
@@ -166,7 +176,7 @@ include("../../back-end/validaAcesso.php");
                     }
                 });
                 if (duplicado) {
-                    alert("Pokemon Repetido");
+                    apagarPoke($(this));  
                 }
                 if (verifica) {
                     alert("Limite Máximo Atingido");
@@ -321,6 +331,39 @@ include("../../back-end/validaAcesso.php");
                     }
                 });
             });
+
+            function apagarPoke($pok,$pokTeam){
+                $(".apagarPok").css("display","block");
+                $(".btnApagar").click(function (e) { 
+                e.preventDefault();
+                if($(this).attr("apagar")=='t'){
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost/projetoa/back-end/apagarPok.php",
+                        data: {
+                            pokemonId : $($pok).attr("idPok")
+                        },
+                        dataType: "JSON",
+                    });
+                    $(".team").each(function() {
+                       if($(this).attr("src") == $($pok).attr("src")){
+                            $(this).attr("src", "");
+                            $(this).attr("producao","");
+                        } 
+                    });
+                    $($pok).attr("src", "");
+                    $($pok).attr("producao", "");
+                    $($pok).attr("evolve", "");
+                    $($pok).attr("tier", "");
+                    $($pok).attr("nome", "");
+                    $($pok).attr("idPok", "");
+                    $(".apagarPok").css("display","none");
+                    return false;
+                }else{
+                    $(".apagarPok").css("display","none");
+                }
+            });
+            }
 
         });
     </script>
